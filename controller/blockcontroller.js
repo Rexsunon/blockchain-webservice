@@ -1,5 +1,5 @@
 const SHA256 = require('crypto-js/sha256');
-const BlockClass = require('../models/Block.js');
+const BlockClass = require('../models/Block');
 
 /**
  * Controller Definition to encapsulate routes to work with blocks
@@ -32,7 +32,7 @@ class BlockController {
       }
 
       res.status(200).json({
-        success: false,
+        success: true,
         data: block,
       });
     });
@@ -54,8 +54,8 @@ class BlockController {
 
       this.setBlock(data);
 
-      res.status(404).json({
-        success: false,
+      res.status(200).json({
+        success: true,
         data: this.blocks,
       });
     });
@@ -63,7 +63,9 @@ class BlockController {
 
   setBlock(data) {
     let blockAux = new BlockClass.Block(data);
-    blockAux.height = index;
+    if (this.blocks > 0) {
+      blockAux.height = this.blocks.length;
+    }
     blockAux.hash = SHA256(JSON.stringify(blockAux)).toString();
     this.blocks.push(blockAux);
   }

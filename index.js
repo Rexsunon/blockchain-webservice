@@ -25,8 +25,8 @@ class BlockApi {
   }
 
   startServer() {
-    this.server.listen(PORT, () =>
-      console.log(`Server running on port ${PORT}`)
+    this.server.listen(this.PORT, () =>
+      console.log(`Server running on port ${this.PORT}`)
     );
   }
 }

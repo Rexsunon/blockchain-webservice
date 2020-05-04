@@ -6,3 +6,5 @@ class Block {
     this.time = new Date().getTime().toString().slice(0, -3);
   }
 }
+
+module.exports.Block = Block;
