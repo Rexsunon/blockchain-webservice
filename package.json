@@ -1,0 +1,28 @@
+{
+  "name": "blockchain-webservice",
+  "version": "1.0.0",
+  "description": "Blockchain web service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rexsunon/blockchain-webservice.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Blockchain"
+  ],
+  "author": "Evidence Rex Osikhena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rexsunon/blockchain-webservice/issues"
+  },
+  "homepage": "https://github.com/Rexsunon/blockchain-webservice#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "level": "^6.0.1"
+  }
+}
