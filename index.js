@@ -1,10 +1,34 @@
 const express = require('express');
 const http = require('http');
 
-const app = express();
+class BlockApi {
+  constructor() {
+    this.app = express();
+    this.PORT = 5000 || process.env.PORT;
+    this.server;
+    this.initMiddelware();
+    this.initControllers();
+    this.setupServer();
+    this.startServer();
+  }
 
-const { PORT = 5000 } = process.PORT;
+  initMiddelware() {
+    this.app.use(express.json());
+  }
 
-const server = http.createServer(app);
+  initControllers() {
+    require('./controller/blockcontroller')(this.app);
+  }
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  setupServer() {
+    this.server = http.createServer(this.app);
+  }
+
+  startServer() {
+    this.server.listen(PORT, () =>
+      console.log(`Server running on port ${PORT}`)
+    );
+  }
+}
+
+new BlockApi();
